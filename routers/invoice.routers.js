@@ -1,8 +1,8 @@
 const express = require('express');
-const { addInvoice, getDetailInvoice } = require('../controllers/invoice.controllers');
+const { addInvoice, getInvoiceItemByUserId } = require('../controllers/invoice.controllers');
 const invoiceRouter = express.Router();
 
-invoiceRouter.get("/:id", getDetailInvoice);
+invoiceRouter.get("/:user_id", getInvoiceItemByUserId);
 invoiceRouter.post("/", addInvoice);
 
 module.exports = {

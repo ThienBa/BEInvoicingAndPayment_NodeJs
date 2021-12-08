@@ -10,10 +10,10 @@ const addInvoice = async (req, res) => {
     }
 }
 
-const getDetailInvoice = async (req, res) => {
-    const { id } = req.params;
+const getInvoiceItemByUserId = async (req, res) => {
+    const { user_id } = req.params;
     try {
-        const invoiceDetail = await Invoice.findOne({ where: { id } });
+        const invoiceDetail = await Invoice.findAll({ where: { user_id } });
         res.status(200).send(invoiceDetail);
     } catch (error) {
         res.status(500).send(error);
@@ -21,6 +21,6 @@ const getDetailInvoice = async (req, res) => {
 }
 
 module.exports = {
-    getDetailInvoice,
+    getInvoiceItemByUserId,
     addInvoice
 }
